@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { ProductCard } from "../components/ProductCard"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -10,13 +11,15 @@ const Home = () => {
     .catch(error => console.error(error))
   }, [])
 
-  const allProducts = products.map(eachProduct => <li>{eachProduct.name}</li>)
+  const allProducts = products.map((product, index) => {
+    return <ProductCard key={product._id} product={product} index={index} />
+  })
 
   return (
-    <>
+    <div className="container">
       <h1>Home Component</h1>
-      {allProducts}
-    </>
+      <div className="products">{allProducts} </div> 
+    </div>
   )
 }
 
