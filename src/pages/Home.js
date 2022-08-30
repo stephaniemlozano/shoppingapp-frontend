@@ -5,7 +5,7 @@ const Home = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:4040/')
+    fetch(process.env.REACT_APP_API_ENDPOINT)
     .then(response => response.json())
     .then(data => setProducts(data))
     .catch(error => console.error(error))

@@ -8,7 +8,7 @@ const AddProduct = () => {
     //const newProduct = { name: 'Pasta', description: 'Italian noodles', price: 1.99, exp: 2025}
     // if you leave it without a method it default to GET
     
-    fetch('http://localhost:4040', {
+    fetch(process.env.REACT_APP_API_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
